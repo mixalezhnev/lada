@@ -1,0 +1,56 @@
+{
+  "name": "helloworld",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd new_board && npm run build && cd .. && cordova prepare android",
+    "start": "cd new_board && npm start"
+  },
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "com.darktalker.cordova.screenshot": "git+https://github.com/gitawego/cordova-screenshot.git",
+    "com.megster.cordova.FileChooser": "~0.0.0",
+    "com.napolitano.cordova.plugin.intent": "git+https://github.com/napolitano/cordova-plugin-intent.git",
+    "cordova-android": "^7.1.0",
+    "cordova-android-support-gradle-release": "^1.4.2",
+    "cordova-custom-config": "^5.0.2",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-file": "^6.0.1",
+    "cordova-plugin-file-chooser-android": "^1.0.1",
+    "cordova-plugin-filepath": "^1.3.0",
+    "cordova-plugin-intent": "git+https://github.com/napolitano/cordova-plugin-intent.git",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-pdialog": "^2.0.1",
+    "cordova-plugin-vibration": "^3.1.0",
+    "cordova-plugin-viewport": "^1.0.3",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-socialsharing": "^5.4.1",
+    "es6-promise-plugin": "^4.2.2",
+    "moment": "^2.22.2",
+    "re-reselect": "^2.1.0"
+  },
+  "cordova": {
+    "plugins": {
+      "com.darktalker.cordova.screenshot": {},
+      "cordova-plugin-viewport": {},
+      "com.megster.cordova.FileChooser": {},
+      "cordova-custom-config": {},
+      "com.napolitano.cordova.plugin.intent": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-filepath": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-pdialog": {},
+      "cordova-plugin-vibration": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

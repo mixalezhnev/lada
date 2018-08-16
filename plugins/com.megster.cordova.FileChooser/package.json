@@ -1,0 +1,56 @@
+{
+  "_from": "cordova-plugin-file-chooser-android",
+  "_id": "cordova-plugin-file-chooser-android@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-cXQrk7aoeAtJHFE9zoD6u2PqoWY=",
+  "_location": "/cordova-plugin-file-chooser-android",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-file-chooser-android",
+    "name": "cordova-plugin-file-chooser-android",
+    "escapedName": "cordova-plugin-file-chooser-android",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-file-chooser-android/-/cordova-plugin-file-chooser-android-1.0.1.tgz",
+  "_shasum": "71742b93b6a8780b491c513dce80fabb63eaa166",
+  "_spec": "cordova-plugin-file-chooser-android",
+  "_where": "/home/afanasiy/Документы/projects/quaternity/new_cordova_project/quaternity_new",
+  "author": {
+    "name": "luckylooke"
+  },
+  "bugs": {
+    "url": "https://github.com/luckylooke/cordova-filechooser/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "cordova plugin file chooser for android",
+  "homepage": "https://github.com/luckylooke/cordova-filechooser#readme",
+  "keywords": [
+    "cordova",
+    "plugin",
+    "file",
+    "chooser",
+    "picker",
+    "select",
+    "native"
+  ],
+  "license": "Apache-2.0",
+  "main": "www/fileChooser.js",
+  "name": "cordova-plugin-file-chooser-android",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckylooke/cordova-filechooser.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}
