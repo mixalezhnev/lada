@@ -1,19 +1,19 @@
 {
-  "_from": "cordova-plugin-viewport@1.0.3",
+  "_from": "cordova-plugin-viewport@^1.0.3",
   "_id": "cordova-plugin-viewport@1.0.3",
   "_inBundle": false,
   "_integrity": "sha512-I4+Ka1ZutgcXY4/G3OH0JZIrfM9P76gPEdwzq3q1iiWIRyADgW1mS+KZD16S9IhlmimUVpHOJy3yDjsY1DMqhQ==",
   "_location": "/cordova-plugin-viewport",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-viewport@1.0.3",
+    "raw": "cordova-plugin-viewport@^1.0.3",
     "name": "cordova-plugin-viewport",
     "escapedName": "cordova-plugin-viewport",
-    "rawSpec": "1.0.3",
+    "rawSpec": "^1.0.3",
     "saveSpec": null,
-    "fetchSpec": "1.0.3"
+    "fetchSpec": "^1.0.3"
   },
   "_requiredBy": [
     "#USER",
@@ -21,8 +21,8 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-viewport/-/cordova-plugin-viewport-1.0.3.tgz",
   "_shasum": "7361037c6796857401992f5fe807a0e1f16d1038",
-  "_spec": "cordova-plugin-viewport@1.0.3",
-  "_where": "/home/afanasiy/Документы/projects/quaternity/new_cordova_project/quaternity_new",
+  "_spec": "cordova-plugin-viewport@^1.0.3",
+  "_where": "/home/mixa/projects/lada",
   "author": {
     "name": "Can Kutlu Kinay",
     "email": "me@ckk.im"
