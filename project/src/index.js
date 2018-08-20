@@ -28,6 +28,8 @@ const startApp = () => {
   store.runSaga(sagas);
   // const langText = new LangTextCreater(store);
   // cordovaApi.lockPortrait();
+  window.screen.orientation.unlock();
+  window.screen.orientation.lock("landscape");
 
   ReactDOM.render(
     <Provider store={store}>
