@@ -3,9 +3,20 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { goBack } from "react-router-redux";
 import { Link } from 'react-router-dom';
+import { reduxForm } from 'redux-form';
 
 import cancel from 'img/cancel.png';
 import mail from 'img/mail.png';
+
+const ladaUrl = 'http://185.213.211.67:9037/presentation?i=1&m=';
+const lesarUrl = 'http://185.213.211.67:9037/presentation?i=2&m=';
+
+export const parseJSON = response => response.json();
+
+export const request = (url, options) => {
+  return fetch(url, options)
+    .then(parseJSON);
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -77,8 +88,30 @@ const EmailInput = styled.input`
 `;
 
 class SendCatalogPage extends Component {
-  render() {
+  state = {
+    email: '',
+  };
+
+  emailChange = (e) => {
+    this.setState({
+      email: e.target.value,
+    });
+  }
+
+  submit = async () => {
     const id = this.props.match.params.id;
+    let resp;
+
+    if (id === '1') {
+      resp = await request(`${ladaUrl}${this.state.email}`);
+    } else {
+      resp = await request(`${lesarUrl}${this.state.email}`);
+    }
+
+    if (resp.data.includes('OK')) this.props.goBack();
+  }
+
+  render() {
     return (
       <Wrapper>
         <Card>
@@ -87,8 +120,8 @@ class SendCatalogPage extends Component {
           </Link>
           <SendIcon src={mail} />
           <Title>Введите адрес Вашей почты, и получите каталог.</Title>
-          <EmailInput type="email" placeholder="Введите Ваш e–mail" />
-          <SendButton>Отправить</SendButton>
+          <EmailInput type="email" placeholder="Введите Ваш e–mail" value={this.state.email} onChange={this.emailChange} />
+          <SendButton onClick={this.submit}>Отправить</SendButton>
         </Card>
       </Wrapper>
     );
