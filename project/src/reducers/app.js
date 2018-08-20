@@ -11,7 +11,7 @@ export const actions = {
   showIframe: () => ({
     type: types.SHOW_IFRAME,
   }),
-  hideframe: () => ({
+  hideIframe: () => ({
     type: types.HIDE_IFRAME,
   })
 };

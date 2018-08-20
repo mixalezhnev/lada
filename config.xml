@@ -17,7 +17,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <access origin="*"/>
+    <access origin="*" />
     <platform name="android">
         <allow-intent href="market:*" />
         <config-file parent="./application/activity" target="AndroidManifest.xml">
@@ -80,4 +80,5 @@
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
     <plugin name="cordova-plugin-vibration" spec="^3.1.0" />
     <engine name="android" spec="^7.1.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
 </widget>

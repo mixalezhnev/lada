@@ -39,6 +39,10 @@ injectGlobal`
     line-height: 1.82857143;
   }
 
+  button {
+    font-size: 1.8rem;
+  }
+
   html, body, #root {
     margin:0;
     padding:0;

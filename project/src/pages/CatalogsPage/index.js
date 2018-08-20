@@ -10,13 +10,21 @@ import { actions as appActions } from 'reducers/app';
 import cat_zap from 'img/cat_zap.png';
 import online_cat from 'img/online-cat.png';
 import cat_acc from 'img/cat_acc.png';
+import shade from 'img/shade.png';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  zoom: 1.5;
+  ${'' /* zoom: 1.5; */}
+`;
+
+const Shade = styled.img`
+  position: absolute;
+  bottom: -90px;
+  width: 283px;
+  height: 40px;
 `;
 
 const CardsWrapper = styled.div`
@@ -24,11 +32,11 @@ const CardsWrapper = styled.div`
 `;
 
 const Card = styled.div`
-  background: #FFFFFF;
-  width: 220px;
-  height: 288px;
+  background: #EEEEEE;
+  width: 304px;
+  height: 386px;
   border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px;
+  ${'' /* box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px; */}
   padding-bottom: 96px;
   position: relative;
   display: flex;
@@ -45,6 +53,10 @@ const LogoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  img {
+    margin-bottom: 48px;
+  }
 `;
 
 const CardTitle = styled.p`
@@ -58,8 +70,8 @@ const CardTitle = styled.p`
 `;
 
 const ViewButton = styled.button`
-  background: #F47920;
-  height: 45px;
+  background: #FA5000;
+  height: 48px;
   color: #FFF;
   width: 168px;
   outline: none;
@@ -100,7 +112,7 @@ class CatalogsPage extends Component {
                 src={cat_zap}
                 alt=""
                 style={{
-                  maxWidth: '70px',
+                  width: '112px',
                 }}
               />
               <CardTitle>Каталог запасных частей</CardTitle>
@@ -110,34 +122,34 @@ class CatalogsPage extends Component {
                 Скачать
               </Link>
             </ViewButton>
+            <Shade src={shade} />
           </Card>
+
           <Card>
             <LogoWrapper>
               <img
                 src={online_cat}
                 alt=""
                 style={{
-                  maxWidth: '81px',
+                  width: '117px',
                 }}
               />
               <CardTitle>Онлайн каталог аксессуаров</CardTitle>
             </LogoWrapper>
             <ViewButton>
-              <a
-                // href="http://www.lada.ru/cars/accessories.html"
-                href="http://www.example.com"
-                target="target_iframe"
-                // target="_blank"
-                onClick={() => { this.props.showIframe(); }}
-              >Смотреть</a>
+              <span
+                onClick={() => { window.wcordova.InAppBrowser.open('http://www.lada.ru/cars/accessories.html') }}
+              >Смотреть</span>
             </ViewButton>
+            <Shade src={shade} />
           </Card>
+
           <Card>
             <LogoWrapper>
               <img
                 src={cat_acc}
                 style={{
-                  maxWidth: '73px',
+                  width: '125px',
                 }}
                 alt=""
               />
@@ -148,6 +160,7 @@ class CatalogsPage extends Component {
                 Скачать
               </Link>
             </ViewButton>
+            <Shade src={shade} />
           </Card>
         </CardsWrapper>
       </Wrapper>

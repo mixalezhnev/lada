@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  zoom: 1.5;
+  ${'' /* zoom: 1.5; */}
 `;
 
 const CardsWrapper = styled.div`
@@ -20,12 +20,12 @@ const CardsWrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 417px;
-  max-width: 352px;
+  min-height: 496px;
+  width: 417px;
   padding: 68px 37px 33px 37px;
-  background: #FFFFFF;
+  background: #EEEEEE;
   border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px;
+  ${'' /* box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px; */}
   display: flex;
   position: relative;
   flex-direction: column;
@@ -33,7 +33,7 @@ const Card = styled.div`
 `;
 
 const SendButton = styled.button`
-  background: #F47920;
+  background: #FA5000;
   height: 48px;
   color: #FFF;
   width: 160px;
@@ -41,6 +41,7 @@ const SendButton = styled.button`
   border: none;
   text-align: center;
   box-shadow: rgba(0, 0, 0, .24) 0px 1px 0px;
+  font-size: 20px;
 `;
 
 const CloseButton = styled.img`
@@ -52,8 +53,8 @@ const CloseButton = styled.img`
 `;
 
 const SendIcon = styled.img`
-  width: 66px;
-  height: 75px;
+  width: 85px;
+  height: 96px;
   margin-bottom: 33px;
 `;
 

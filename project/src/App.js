@@ -9,7 +9,7 @@ import { goBack } from "react-router-redux";
 import { actions as appActions } from 'reducers/app';
 
 import back from 'img/background.png';
-import lada from 'img/lada.png';
+// import lada from 'img/lada.png';
 
 import MainPage from "pages/MainPage";
 import SitesPage from "pages/SitesPage";
@@ -94,9 +94,9 @@ class App extends Component {
           </BackWrapper>
           <Title>{pathname === '/catalogs' ? 'Каталоги' : 'Сайты'}</Title>
         </Navbar>
-        {
+        {/* {
           (pathname.includes('send') || pathname.includes('sites')) || <LadaLogo src={lada} />
-        }
+        } */}
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/sites" component={SitesPage} />

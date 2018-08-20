@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 import lada_site from 'img/lada_site.png';
 import lada_image from 'img/lada_image.png';
 import lada_detal from 'img/lada_detal.png';
+import shade from 'img/shade.png';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  zoom: 1.5;
+  ${'' /* zoom: 1.5; */}
 `;
 
 const CardsWrapper = styled.div`
@@ -19,11 +20,11 @@ const CardsWrapper = styled.div`
 `;
 
 const Card = styled.div`
-  background: #FFFFFF;
-  width: 220px;
-  height: 288px;
+  background: #EEEEEE;
+  width: 304px;
+  height: 386px;
   border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px;
+  ${'' /* box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px; */}
   padding-bottom: 96px;
   position: relative;
   display: flex;
@@ -34,12 +35,33 @@ const Card = styled.div`
   }
 `;
 
+const Shade = styled.img`
+  position: absolute;
+  bottom: -90px;
+  width: 283px;
+  height: 40px;
+`;
+
 const LogoWrapper = styled.div`
   position: absolute;
-  height: calc(100% - 96px);
+  height: calc(100% - 66px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  img {
+    width: 203px;
+    height: 217px;
+    margin-bottom: 20px;
+  }
+
+  span {
+    width: 100%;
+    display: block;
+    text-align: center;
+    color: #5B6770;
+    font-family: 'Lada-Bold';
+  }
 `;
 
 const CardTitle = styled.p`
@@ -53,7 +75,7 @@ const CardTitle = styled.p`
 `;
 
 const ViewButton = styled.button`
-  background: #F47920;
+  background: #FA5000;
   height: 45px;
   color: #FFF;
   width: 168px;
@@ -74,37 +96,43 @@ class CatalogsPage extends Component {
           <Card>
             <LogoWrapper>
               <img
-                src={lada_site}
+                src={lada_image}
                 alt=""
-                style={{
-                  maxWidth: '132px',
-                }}
               />
+              <span>lada-image.ru</span>
             </LogoWrapper>
-            <ViewButton>Смотреть</ViewButton>
+            <ViewButton
+                onClick={() => { window.wcordova.InAppBrowser.open('https://lada-image.ru/') }}
+            >Смотреть</ViewButton>
+            <Shade src={shade} />
           </Card>
+
           <Card>
             <LogoWrapper>
               <img
-                src={lada_image}
-                style={{
-                  maxWidth: '124px',
-                }}
-                alt=""/>
+                src={lada_site}
+                alt=""
+              />
+              <span>lada.ru</span>
             </LogoWrapper>
-            <ViewButton>Смотреть</ViewButton>
+            <ViewButton
+                onClick={() => { window.wcordova.InAppBrowser.open('http://www.lada.ru/') }}
+            >Смотреть</ViewButton>
+            <Shade src={shade} />
           </Card>
+
           <Card>
             <LogoWrapper>
               <img
                 src={lada_detal}
-                style={{
-                  maxWidth: '166px',
-                }}
                 alt=""
               />
+              <span>lada-original.ru</span>
             </LogoWrapper>
-            <ViewButton>Смотреть</ViewButton>
+            <ViewButton
+                onClick={() => { window.wcordova.InAppBrowser.open('https://lada-original.ru/') }}
+            >Смотреть</ViewButton>
+            <Shade src={shade} />
           </Card>
         </CardsWrapper>
       </Wrapper>
