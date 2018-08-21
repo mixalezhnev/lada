@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'self' cdvfile://*; style-src 'unsafe-inline' 'self' cdvfile://*; script-src 'self' 'unsafe-eval' cdvfile://*"> -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-  <meta name="viewport" content="user-scalable=no, width=1366">
+  <!-- <meta name="viewport" content="user-scalable=no, width=1366"> -->
   <meta name="theme-color" content="#000000">
   <!--
       manifest.json provides metadata used when your web app is added to the
@@ -24,36 +24,6 @@
     -->
   <title>React App</title>
   <script src="cordova.js"></script>
-
-  <script>
-  // Костыль на время разработки, смотри когда меняется ориентация и меняем
-// viewport, чтобы всё смотрелось круто.
-var orientation =
-  screen.orientation || screen.mozOrientation || screen.msOrientation;
-var viewport = document.querySelector("meta[name=viewport]");
-
-if (
-  orientation.type === "landscape-primary" ||
-  orientation === 90 ||
-  orientation === -90
-) {
-  viewport.setAttribute("content", "user-scalable=no, width=1413");
-}
-window.addEventListener("orientationchange", () => {
-  console.log(orientation);
-  // var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
-  // var viewport = document.querySelector('meta[name=viewport]');
-  if (
-    orientation.type === "landscape-primary" ||
-    orientation === 90 ||
-    orientation === -90
-  ) {
-    viewport.setAttribute("content", "user-scalable=no, width=1413");
-  } else if (orientation.type === "portrait-primary" || orientation === 0) {
-    viewport.setAttribute("content", "user-scalable=no, width=750");
-  }
-});
-</script>
 </head>
 
 <body>

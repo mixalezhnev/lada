@@ -15,7 +15,9 @@ import MainPage from "pages/MainPage";
 import SitesPage from "pages/SitesPage";
 import CatalogsPage from "pages/CatalogsPage";
 import SendCatalogPage from "pages/SendCatalogPage";
+
 import Iframe from 'components/Iframe';
+import Notifications from 'components/Notifications';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -103,7 +105,7 @@ class App extends Component {
           <Route exact path="/catalogs" component={CatalogsPage} />
           <Route path="/send/:id" component={SendCatalogPage} />
         </Switch>
-        <Iframe />
+        <Notifications />
       </Wrapper>
     );
   }

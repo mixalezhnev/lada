@@ -5,6 +5,7 @@ import "babel-polyfill";
 
 import "./index.css";
 import globalStyles from './globalStyles';
+import './toastr.css';
 
 // import StyleThemeProvider from 'containers/StyleThemeProvider';
 import { Provider } from "react-redux";

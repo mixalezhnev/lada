@@ -4,12 +4,19 @@ import { connect } from "react-redux";
 import { goBack } from "react-router-redux";
 import { Link } from 'react-router-dom';
 import { reduxForm } from 'redux-form';
+import { toastr } from 'react-redux-toastr';
 
 import cancel from 'img/cancel.png';
 import mail from 'img/mail.png';
 
 const ladaUrl = 'http://185.213.211.67:9037/presentation?i=1&m=';
 const lesarUrl = 'http://185.213.211.67:9037/presentation?i=2&m=';
+
+export const isEmail = (value) => {
+  return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+    ? undefined
+    : 'Неправильный email';
+};
 
 export const parseJSON = response => response.json();
 
@@ -53,6 +60,12 @@ const SendButton = styled.button`
   text-align: center;
   box-shadow: rgba(0, 0, 0, .24) 0px 1px 0px;
   font-size: 20px;
+
+  transition: .3 linear background;
+
+  :disabled {
+    background: #979fa7;
+  }
 `;
 
 const CloseButton = styled.img`
@@ -87,14 +100,22 @@ const EmailInput = styled.input`
   margin-bottom: 32px;
 `;
 
+const ErrorMsg = styled.div`
+  color: #ff6969;
+  margin-top: 6px;
+`;
+
 class SendCatalogPage extends Component {
   state = {
     email: '',
+    isSubmitting: false,
+    touched: false,
   };
 
-  emailChange = (e) => {
+  emailChange = ({ target: { value } }) => {
     this.setState({
-      email: e.target.value,
+      email: value,
+      error: isEmail(value),
     });
   }
 
@@ -102,13 +123,30 @@ class SendCatalogPage extends Component {
     const id = this.props.match.params.id;
     let resp;
 
+    this.setState({
+      isSubmitting: true,
+    });
+
     if (id === '1') {
       resp = await request(`${ladaUrl}${this.state.email}`);
     } else {
       resp = await request(`${lesarUrl}${this.state.email}`);
     }
 
-    if (resp.data.includes('OK')) this.props.goBack();
+    this.setState({
+      isSubmitting: false,
+    });
+
+    if (resp.data.includes('OK')) {
+      toastr.success('Сообщение успешно отправлено', '');
+      this.props.goBack();
+    }
+  }
+
+  handleBlur = () => {
+    this.setState({
+      touched: true,
+    });
   }
 
   render() {
@@ -120,8 +158,21 @@ class SendCatalogPage extends Component {
           </Link>
           <SendIcon src={mail} />
           <Title>Введите адрес Вашей почты, и получите каталог.</Title>
-          <EmailInput type="email" placeholder="Введите Ваш e–mail" value={this.state.email} onChange={this.emailChange} />
-          <SendButton onClick={this.submit}>Отправить</SendButton>
+          <EmailInput
+            type="email"
+            placeholder="Введите Ваш e–mail"
+            value={this.state.email}
+            onChange={this.emailChange}
+            disabled={this.state.isSubmitting}
+            onBlur={this.handleBlur}
+          />
+          <SendButton
+            onClick={this.submit}
+            disabled={this.state.isSubmitting || this.state.error || this.state.email.length === 0}
+          >{this.state.isSubmitting ? 'Идёт отправка...' : 'Отправить'}</SendButton>
+          {
+            (this.state.error && this.state.touched) && <ErrorMsg>{this.state.error}</ErrorMsg>
+          }
         </Card>
       </Wrapper>
     );
