@@ -10,6 +10,7 @@ import { actions as appActions } from 'reducers/app';
 import cat_zap from 'img/cat_zap.png';
 import online_cat from 'img/online-cat.png';
 import cat_acc from 'img/cat_acc.png';
+import lecar from 'img/lecar.png';
 import shade from 'img/shade.png';
 
 const Wrapper = styled.div`
@@ -33,7 +34,7 @@ const CardsWrapper = styled.div`
 
 const Card = styled.div`
   background: #EEEEEE;
-  width: 304px;
+  width: 262px;
   height: 386px;
   border-radius: 2px;
   ${'' /* box-shadow: rgba(0, 0, 0, .16) 0px 10px 15px; */}
@@ -55,7 +56,7 @@ const LogoWrapper = styled.div`
   align-items: center;
 
   img {
-    margin-bottom: 48px;
+    margin-bottom: 27px;
   }
 `;
 
@@ -112,10 +113,10 @@ class CatalogsPage extends Component {
                 src={cat_zap}
                 alt=""
                 style={{
-                  width: '112px',
+                  width: '96px',
                 }}
               />
-              <CardTitle>Каталог запасных частей</CardTitle>
+              <CardTitle>Каталог запасных частей LADA</CardTitle>
             </LogoWrapper>
             <ViewButton>
               <Link to="/send/1">
@@ -131,10 +132,10 @@ class CatalogsPage extends Component {
                 src={online_cat}
                 alt=""
                 style={{
-                  width: '117px',
+                  width: '101px',
                 }}
               />
-              <CardTitle>Онлайн каталог аксессуаров</CardTitle>
+              <CardTitle>Онлайн каталог аксессуаров LADA</CardTitle>
             </LogoWrapper>
             <ViewButton>
               <span
@@ -149,11 +150,31 @@ class CatalogsPage extends Component {
               <img
                 src={cat_acc}
                 style={{
-                  width: '125px',
+                  width: '108px',
                 }}
                 alt=""
               />
-              <CardTitle>Каталог аксессуаров</CardTitle>
+              <CardTitle>Каталог аксессуаров LADA</CardTitle>
+            </LogoWrapper>
+            <ViewButton>
+              <Link to="/send/2">
+                Скачать
+              </Link>
+            </ViewButton>
+            <Shade src={shade} />
+          </Card>
+
+          <Card>
+            <LogoWrapper>
+              <img
+                src={lecar}
+                style={{
+                  width: '150px',
+                  marginBottom: '43px',
+                }}
+                alt=""
+              />
+              <CardTitle>Каталог запасныйх частей LADA</CardTitle>
             </LogoWrapper>
             <ViewButton>
               <Link to="/send/3">

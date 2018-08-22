@@ -127,10 +127,14 @@ class SendCatalogPage extends Component {
       isSubmitting: true,
     });
 
-    if (id === '1') {
-      resp = await request(`${ladaUrl}${this.state.email}`);
-    } else {
-      resp = await request(`${lesarUrl}${this.state.email}`);
+    try {
+      if (id === '1') {
+        resp = await request(`${ladaUrl}${this.state.email}`);
+      } else {
+        resp = await request(`${lesarUrl}${this.state.email}`);
+      }
+    } catch (e) {
+      toastr.error('Произошла ошибка при отправке сообщения', '');
     }
 
     this.setState({
